@@ -2,6 +2,6 @@ package controlador;
 
 import java.awt.event.ActionListener;
 
-public class controlador {
+public class Controlador {
 
 }
