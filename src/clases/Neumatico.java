@@ -7,10 +7,7 @@ public class Neumatico {
     //Velocidad max (char: S,T, X,V, W, Y, Z)
     //Perfil de la carga de la llanta (int: de 80 a 114)
     //Ancho nominal en milimetros (int: de 200 a 300)
-    
-    
-
-    private String marca;
+    private String marca = "";
     private int tamRing;
     private char velMax;
     private int perfilCarga;
@@ -27,7 +24,7 @@ public class Neumatico {
     }
 
     Neumatico() {
-        
+
     }
 
     public String getMarca() {
@@ -69,7 +66,5 @@ public class Neumatico {
     public void setAnchoNominal(int anchoNominal) {
         this.anchoNominal = anchoNominal;
     }
-
-
 
 }

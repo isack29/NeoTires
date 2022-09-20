@@ -8,9 +8,13 @@ public class Procesos {
     //Llenar arreglo de instancias nulas
     //Mostrar neumatica.
     //Metodo agreegar (Parametro Neumatico, (If verificar id))
-    Neumatico neumaticos[] = new Neumatico[1000];
+    Neumatico neumaticos[] = new Neumatico[100];
 
     int contl = 0;
+
+    public Procesos() {
+        llenarListaNeumaticos();
+    }
 
     public void llenarListaNeumaticos() {
 
@@ -23,23 +27,14 @@ public class Procesos {
         }
     }
 
-    public void setListaNeumaticos(int pos, String marca, int tamRing, char velMax, int perfilCarga, int anchoNominal) {
-
-        Neumatico n = new Neumatico();
-
-        n.setMarca(marca);
-        n.setTamRing(tamRing);
-        n.setVelMax(velMax);
-        n.setPerfilCarga(perfilCarga);
-        n.setAnchoNominal(anchoNominal);
-
-        neumaticos[pos] = n;
-
-    }
-
     public Neumatico getNeumatico(int pos) {
 
         return neumaticos[pos];
+    }
+
+    public void setNeumatico(int pos, Neumatico nuevNeumatico) {
+
+        neumaticos[pos] = nuevNeumatico;
     }
 
     public String mostrarListaNeumaticos() {
@@ -47,9 +42,14 @@ public class Procesos {
         String mensaje = "Marca\tTamaño de Ring\tVelocidad Max\tPerfil de Carga\tAncho Nominal\n";
 
         for (int i = 0; i < neumaticos.length; i++) {
+            if (!getNeumatico(i).getMarca().equals("")) {
 
-            mensaje += getNeumatico(i).getMarca() + "\t" + getNeumatico(i).getTamRing() + "\t" + getNeumatico(i).getVelMax() + "\t" + getNeumatico(i).getPerfilCarga() + "\n" + getNeumatico(i).getAnchoNominal();
-
+                mensaje += getNeumatico(i).getMarca() + "\t"
+                        + getNeumatico(i).getTamRing() + "\t"
+                        + getNeumatico(i).getVelMax() + "\t"
+                        + getNeumatico(i).getPerfilCarga() + "\t"
+                        + getNeumatico(i).getAnchoNominal() + "\n";
+            }
         }
 
         return mensaje;
@@ -63,15 +63,12 @@ public class Procesos {
         return mensaje;
     }
 
-    public void agregarNeumatico(int pos, String marca, int tamRing, char velMax, int perfilCarga, int anchoNominal) {
-
+    public void nuevoNeumatico(Neumatico nuevoNeumatico) {
         if (contl < neumaticos.length) {
-
-            setListaNeumaticos(pos, marca, tamRing, velMax, perfilCarga, anchoNominal);
+            setNeumatico(contl, nuevoNeumatico);
             contl++;
 
         } else {
-
             JOptionPane.showMessageDialog(null, "Capacidad de la memoria llena, no se pueden ingresar más neumaticos");
         }
     }
