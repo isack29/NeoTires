@@ -31,16 +31,6 @@ public class Vista extends javax.swing.JFrame {
         spinner_agregar_ancho_nominal = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         btn_agregar = new javax.swing.JButton();
-        panel_busquedas = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        spinner_busquedas_perfil_carga = new javax.swing.JSpinner();
-        jLabel10 = new javax.swing.JLabel();
-        cb_metodo_busqueda = new javax.swing.JComboBox<>();
-        btn_buscar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txt_resultado_busqueda = new javax.swing.JTextArea();
-        jLabel11 = new javax.swing.JLabel();
         panel_ordenamientos = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -51,6 +41,16 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_inventario = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
+        panel_busquedas = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        spinner_busquedas_perfil_carga = new javax.swing.JSpinner();
+        jLabel10 = new javax.swing.JLabel();
+        cb_metodo_busqueda = new javax.swing.JComboBox<>();
+        btn_buscar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_resultado_busqueda = new javax.swing.JTextArea();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -83,6 +83,7 @@ public class Vista extends javax.swing.JFrame {
         panel_agregar.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 120, 25));
 
         spinner_agregar_tamaño_rin.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        spinner_agregar_tamaño_rin.setModel(new javax.swing.SpinnerNumberModel(10, null, null, 1));
         panel_agregar.add(spinner_agregar_tamaño_rin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 120, 25));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -124,59 +125,6 @@ public class Vista extends javax.swing.JFrame {
         panel_agregar.add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 120, 25));
 
         pestañas.addTab("Agregar", panel_agregar);
-
-        panel_busquedas.setBackground(new java.awt.Color(255, 255, 255));
-        panel_busquedas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Resultado");
-        panel_busquedas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 25));
-
-        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Metodo:");
-        panel_busquedas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 25));
-
-        spinner_busquedas_perfil_carga.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        spinner_busquedas_perfil_carga.setModel(new javax.swing.SpinnerNumberModel(80, 80, 114, 1));
-        panel_busquedas.add(spinner_busquedas_perfil_carga, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 90, 25));
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Perfil de carga:");
-        panel_busquedas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, 25));
-
-        cb_metodo_busqueda.setBackground(new java.awt.Color(255, 255, 255));
-        cb_metodo_busqueda.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        cb_metodo_busqueda.setForeground(new java.awt.Color(0, 0, 0));
-        cb_metodo_busqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione->", "Lineal", "Binaria" }));
-        panel_busquedas.add(cb_metodo_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, 25));
-
-        btn_buscar.setBackground(new java.awt.Color(0, 0, 0));
-        btn_buscar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar.setText("Buscar");
-        panel_busquedas.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 90, 25));
-
-        txt_resultado_busqueda.setEditable(false);
-        txt_resultado_busqueda.setBackground(new java.awt.Color(255, 255, 255));
-        txt_resultado_busqueda.setColumns(20);
-        txt_resultado_busqueda.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        txt_resultado_busqueda.setRows(5);
-        txt_resultado_busqueda.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jScrollPane1.setViewportView(txt_resultado_busqueda);
-
-        panel_busquedas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 510, 230));
-
-        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Buscar neumático por perfil de carga");
-        panel_busquedas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 360, 25));
-
-        pestañas.addTab("Busquedas", panel_busquedas);
 
         panel_ordenamientos.setBackground(new java.awt.Color(255, 255, 255));
         panel_ordenamientos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -237,6 +185,59 @@ public class Vista extends javax.swing.JFrame {
         panel_ordenamientos.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 25));
 
         pestañas.addTab("Ordenamientos", panel_ordenamientos);
+
+        panel_busquedas.setBackground(new java.awt.Color(255, 255, 255));
+        panel_busquedas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Resultado");
+        panel_busquedas.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 25));
+
+        jLabel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Metodo:");
+        panel_busquedas.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 25));
+
+        spinner_busquedas_perfil_carga.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        spinner_busquedas_perfil_carga.setModel(new javax.swing.SpinnerNumberModel(80, 80, 114, 1));
+        panel_busquedas.add(spinner_busquedas_perfil_carga, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 90, 25));
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("Perfil de carga:");
+        panel_busquedas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, 25));
+
+        cb_metodo_busqueda.setBackground(new java.awt.Color(255, 255, 255));
+        cb_metodo_busqueda.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        cb_metodo_busqueda.setForeground(new java.awt.Color(0, 0, 0));
+        cb_metodo_busqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione->", "Lineal", "Binaria" }));
+        panel_busquedas.add(cb_metodo_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 130, 25));
+
+        btn_buscar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_buscar.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_buscar.setText("Buscar");
+        panel_busquedas.add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 90, 25));
+
+        txt_resultado_busqueda.setEditable(false);
+        txt_resultado_busqueda.setBackground(new java.awt.Color(255, 255, 255));
+        txt_resultado_busqueda.setColumns(20);
+        txt_resultado_busqueda.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        txt_resultado_busqueda.setRows(5);
+        txt_resultado_busqueda.setMargin(new java.awt.Insets(10, 10, 10, 10));
+        jScrollPane1.setViewportView(txt_resultado_busqueda);
+
+        panel_busquedas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 510, 230));
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setText("Buscar neumático por perfil de carga");
+        panel_busquedas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 360, 25));
+
+        pestañas.addTab("Busquedas", panel_busquedas);
 
         getContentPane().add(pestañas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 440));
 
