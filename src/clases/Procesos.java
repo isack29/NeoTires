@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Procesos {
@@ -9,6 +11,10 @@ public class Procesos {
     //Mostrar neumatica.
     //Metodo agreegar (Parametro Neumatico, (If verificar id))
     Neumatico neumaticos[] = new Neumatico[1000];
+
+    metodosOrdenamiento mO;
+
+    List<Neumatico> listNeumaticos = new ArrayList<>();
 
     int contl = 0;
 
@@ -46,12 +52,15 @@ public class Procesos {
 
         String mensaje = "Marca\tTamaño de Ring\tVelocidad Max\tPerfil de Carga\tAncho Nominal\n";
 
-        for (int i = 0; i < neumaticos.length; i++) {
+        for (int i = 0; i < 1000; i++) {
 
+            if (getNeumatico(i).getTamRing() == 0) {
+                continue;
+
+            }
             mensaje += getNeumatico(i).getMarca() + "\t" + getNeumatico(i).getTamRing() + "\t" + getNeumatico(i).getVelMax() + "\t" + getNeumatico(i).getPerfilCarga() + "\n" + getNeumatico(i).getAnchoNominal();
 
         }
-
         return mensaje;
 
     }
@@ -63,12 +72,23 @@ public class Procesos {
         return mensaje;
     }
 
-    public void agregarNeumatico(int pos, String marca, int tamRing, char velMax, int perfilCarga, int anchoNominal) {
+    public void agregarNeumatico(String marca, int tamRing, char velMax, int perfilCarga, int anchoNominal) {
 
-        if (contl < neumaticos.length) {
+        if (contl < 1000) {
 
-            setListaNeumaticos(pos, marca, tamRing, velMax, perfilCarga, anchoNominal);
-            contl++;
+            if (verificarPerfildeCarga(perfilCarga) == false) {
+
+                listNeumaticos.add(new Neumatico(marca, tamRing, velMax, perfilCarga, anchoNominal));
+                setListaNeumaticos(contl, marca, tamRing, velMax, perfilCarga, anchoNominal);
+                //mO.setNE(contl, marca, tamRing, velMax, perfilCarga, anchoNominal);
+                System.out.println(contl);
+
+                contl++;
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "El perfil de carga ya existe");
+            }
 
         } else {
 
@@ -81,9 +101,13 @@ public class Procesos {
         boolean find = false;
         for (int i = 0; i < neumaticos.length; i++) {
 
-            if (perfildeCarga == getNeumatico(i).getPerfilCarga()) {
+            if (getNeumatico(i) == null) {
+                continue;
+            }
 
+            if (perfildeCarga == getNeumatico(i).getPerfilCarga()) {
                 find = true;
+                break;
 
             }
 
@@ -91,6 +115,37 @@ public class Procesos {
 
         return find;
 
+    }
+
+    public String busquedadLineal(int perfilDeCarga) {
+        metodosBusqueda mB = new metodosBusqueda();
+        String ms = "";
+
+        ms = mB.buscarPorPerfildeCarga(perfilDeCarga, neumaticos);
+
+        return ms;
+
+    }
+
+    public Neumatico[] metodosOrdenamiento(String metodo) {
+        
+        
+        mO = new metodosOrdenamiento(neumaticos);
+        if (metodo.equals("Burbuja")) {
+            neumaticos = mO.ordenarBurbuja();
+            System.out.println(mO.mostrarListaNeumaticos());
+        } else if (metodo.equalsIgnoreCase("intercambio")) {
+            neumaticos = mO.ordenarIntercambio();
+
+        } else if (metodo.equalsIgnoreCase("Quicksort")) {
+            neumaticos = mO.ordenarQuicksort(0, neumaticos.length - 1);
+
+        } else if (metodo.equalsIgnoreCase("Compare to")) {
+
+        } else if (metodo.equalsIgnoreCase("Comparable")) {
+
+        }
+        return neumaticos;
     }
 
 }

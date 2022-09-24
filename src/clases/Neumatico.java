@@ -1,6 +1,7 @@
 package clases;
 
-public class Neumatico {
+
+public class Neumatico{
 
     //Marca (String)
     //Tamaño del ring (int)
@@ -69,7 +70,5 @@ public class Neumatico {
     public void setAnchoNominal(int anchoNominal) {
         this.anchoNominal = anchoNominal;
     }
-
-
 
 }

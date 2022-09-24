@@ -8,25 +8,25 @@ public class metodosBusqueda {
 
     //Metodo busqueda lineal (por id)
     //Metodo busqueda binaria
-    Procesos p = new Procesos();
+    public String buscarPorPerfildeCarga(int perfilDeCarga, Neumatico[] n) {
+        System.out.println("b");
+        String ms = "";
 
-    
-    //Busqueda Lineal
-    public String buscarPorPerfildeCarga(int perfilDeCarga) {
+        for (int i = 0; i < 1000; i++) {
 
-        String mensaje = "Marca\tTamaño de Ring\tVelocidad Max\tPerfil de Carga\tAncho Nominal\n";
+            if (n[i] == null) {
 
-        for (int i = 0; i < p.neumaticos.length; i++) {
+                continue;
 
-            if (p.verificarPerfildeCarga(perfilDeCarga) == false) {
+            }
 
-                mensaje += p.getNeumatico(i).getMarca() + "\t" + p.getNeumatico(i).getTamRing() + "\t" + p.getNeumatico(i).getVelMax() + "\t" + p.getNeumatico(i).getPerfilCarga() + "\n" + p.getNeumatico(i).getAnchoNominal();
-
+            if (n[i].getPerfilCarga() == perfilDeCarga) {
+                ms = n[i].getMarca() + "" + n[i].getTamRing() + "" + n[i].getVelMax() + "" + n[i].getPerfilCarga() + "" + n[i].getAnchoNominal();
             }
 
         }
 
-        return mensaje;
+        return ms;
 
     }
 
