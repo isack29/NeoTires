@@ -110,5 +110,4 @@ public class Controlador implements ActionListener {
     public void mensaje(String msg) {
         JOptionPane.showMessageDialog(null, msg);
     }
-    
 }
