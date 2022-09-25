@@ -1,33 +1,64 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package clases;
 
 public class metodosBusqueda {
 
-    //Metodo busqueda lineal (por id)
-    //Metodo busqueda binaria
-    Procesos p = new Procesos();
-
-    
-    //Busqueda Lineal
-    public String buscarPorPerfildeCarga(int perfilDeCarga) {
-
-        String mensaje = "Marca\tTamaño de Ring\tVelocidad Max\tPerfil de Carga\tAncho Nominal\n";
-
-        for (int i = 0; i < p.neumaticos.length; i++) {
-
-            if (p.verificarPerfildeCarga(perfilDeCarga) == false) {
-
-                mensaje += p.getNeumatico(i).getMarca() + "\t" + p.getNeumatico(i).getTamRing() + "\t" + p.getNeumatico(i).getVelMax() + "\t" + p.getNeumatico(i).getPerfilCarga() + "\n" + p.getNeumatico(i).getAnchoNominal();
-
+    public Neumatico[] ordenarIntercambio(Neumatico[] n) {
+        int i, j;
+        for (i = 0; i <= n.length - 1; i++) {
+            for (j = i + 1; j <= n.length - 1; j++) {
+                if (n[i].getPerfilCarga() > n[j].getPerfilCarga()) {
+                    Neumatico temp;
+                    temp = n[i];
+                    n[i] = n[j];
+                    n[j] = temp;
+                }
             }
-
         }
-
-        return mensaje;
-
+        return n;
     }
 
+    public String buscarPorPerfildeCargaLineal(int perfil, Neumatico[] n) {
+        String ms = "";
+        for (int i = 0; i < 100; i++) {
+            if (n[i] == null) {
+                continue;
+            }
+            if (n[i].getPerfilCarga() == perfil) {
+                ms = "Marca: " + n[i].getMarca() + "\nTamaño de rin: " + n[i].getTamRing() + "\nVelocidad maxima: " + n[i].getVelMax() + "\nPerfil de carga: " + n[i].getPerfilCarga() + "\nAncho nominal" + n[i].getAnchoNominal();
+            }
+        }
+        return ms;
+    }
+
+    public String buscarPorPerfildeCargaBinaria(int perfil, Neumatico[] n) {
+        String ms = "";
+
+        int posicion, izq, der, centro;
+        n = ordenarIntercambio(n);
+        izq = 0;
+        der = n.length - 1;
+
+        posicion = -1;
+
+        while ((izq <= der) && (posicion == -1)) {
+
+            centro = (izq + der) / 2;
+
+            if (perfil == n[centro].getPerfilCarga()) {
+                posicion = centro;
+            } else {
+                if (perfil < n[centro].getPerfilCarga()) {
+                    der = centro - 1;
+                } else {
+                    izq = centro + 1;
+                }
+            }
+        }
+        
+        if (posicion != -1) {
+            ms = "Marca: " + n[posicion].getMarca() + "\nTamaño de rin: " + n[posicion].getTamRing() + "\nVelocidad maxima: " + n[posicion].getVelMax() + "\nPerfil de carga: " + n[posicion].getPerfilCarga() + "\nAncho nominal" + n[posicion].getAnchoNominal();
+        }
+        
+        return ms;
+    }
 }
