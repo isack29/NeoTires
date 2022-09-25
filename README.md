@@ -2,12 +2,14 @@
 NeoTires es un negocio de venta de neumáticos por Internet, el cual desea llevar su
 inventario a través de un programa que le ha encargado, la información que debe llevarse,
 por cada neumático (dato central), a saber, es la siguiente:
-  1. Marca (String)
-  2. Tamaño del RIN (número entero)
-  3. Velocidad Máxima a que puede conducirse (Char: S,T,X,V,W,Y,Z)
-  4. Perfil de carga de la llanta (número entero de 80 a 114)
-  5. Ancho nominal en milímetros (número entero de 200 a 300)
+  - Marca (String)
+  - Tamaño del RIN (número entero)
+  - Velocidad Máxima a que puede conducirse (Char: S,T,X,V,W,Y,Z)
+  - Perfil de carga de la llanta (número entero de 80 a 114)
+  - Ancho nominal en milímetros (número entero de 200 a 300)
+
 El programa debe permitir las siguientes operaciones:
+
   1. Debe usar Vectores de Objeto
   2. Debe Insertar una cantidad mínima de 12 neumáticos (de forma automática)
   3. Que el usuario pueda agregar en cualquier momento un neumático.
