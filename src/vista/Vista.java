@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -38,9 +39,9 @@ public class Vista extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         cb_ordenamiento = new javax.swing.JComboBox<>();
         btn_ordenar = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txt_inventario = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabla_inventario = new javax.swing.JTable();
         panel_busquedas = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -169,20 +170,22 @@ public class Vista extends javax.swing.JFrame {
         btn_ordenar.setText("Ordenar");
         panel_ordenamientos.add(btn_ordenar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 100, 25));
 
-        txt_inventario.setEditable(false);
-        txt_inventario.setBackground(new java.awt.Color(255, 255, 255));
-        txt_inventario.setColumns(20);
-        txt_inventario.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        txt_inventario.setRows(5);
-        txt_inventario.setMargin(new java.awt.Insets(10, 10, 10, 10));
-        jScrollPane2.setViewportView(txt_inventario);
-
-        panel_ordenamientos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 510, 230));
-
         jLabel15.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Inventario");
         panel_ordenamientos.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 25));
+
+        tabla_inventario.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Marca", "Tamaño de rin", "Velocidad max", "Perfil de carga", "Ancho nominal"
+            }
+        ));
+        jScrollPane3.setViewportView(tabla_inventario);
+
+        panel_ordenamientos.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 510, 230));
 
         pestañas.addTab("Ordenamientos", panel_ordenamientos);
 
@@ -283,7 +286,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel panel_agregar;
     private javax.swing.JPanel panel_busquedas;
     private javax.swing.JPanel panel_ordenamientos;
@@ -292,8 +295,8 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JSpinner spinner_agregar_perfil_carga;
     private javax.swing.JSpinner spinner_agregar_tamaño_rin;
     private javax.swing.JSpinner spinner_busquedas_perfil_carga;
+    private javax.swing.JTable tabla_inventario;
     private javax.swing.JTextField txt_agregar_marca;
-    private javax.swing.JTextArea txt_inventario;
     private javax.swing.JTextArea txt_resultado_busqueda;
     // End of variables declaration//GEN-END:variables
 
@@ -393,12 +396,12 @@ public class Vista extends javax.swing.JFrame {
         this.txt_agregar_marca = txt_agregar_marca;
     }
 
-    public JTextArea getTxt_inventario() {
-        return txt_inventario;
+    public JTable getTabla_inventario() {
+        return tabla_inventario;
     }
 
-    public void setTxt_inventario(JTextArea txt_inventario) {
-        this.txt_inventario = txt_inventario;
+    public void setTabla_inventario(JTable tabla_inventario) {
+        this.tabla_inventario = tabla_inventario;
     }
 
     public JTextArea getTxt_resultado_busqueda() {

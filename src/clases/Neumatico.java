@@ -1,12 +1,7 @@
 package clases;
 
-public class Neumatico {
+public class Neumatico implements Comparable<Neumatico> {
 
-    //Marca (String)
-    //Tamaño del ring (int)
-    //Velocidad max (char: S,T, X,V, W, Y, Z)
-    //Perfil de la carga de la llanta (int: de 80 a 114)
-    //Ancho nominal en milimetros (int: de 200 a 300)
     private String marca = "";
     private int tamRing;
     private char velMax;
@@ -65,6 +60,11 @@ public class Neumatico {
 
     public void setAnchoNominal(int anchoNominal) {
         this.anchoNominal = anchoNominal;
+    }
+
+    @Override
+    public int compareTo(Neumatico o) {
+        return marca.compareTo(o.getMarca());
     }
 
 }
